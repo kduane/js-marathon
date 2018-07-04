@@ -11,7 +11,6 @@ let launchpad = (ship) => {
   console.log(rocket);
 };
 
-
 class Spaceship {
   constructor(name) {
     this.name = name;
