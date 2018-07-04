@@ -4,11 +4,14 @@ let rocket = require('./Rocket');
 
 let launchpad = (ship) => {
   console.log('Initiating preflight procedures');
+  let ourShip = new Spaceship('Milano');
+  let crewNames = ['Tori', 'Ken', 'StarLord', 'Gamorra', 'Drax', 'Rocket', 'Groot', 'Mantis'];
+  let trainingClass = trainCrew(crewNames);
   console.log(`Welcome abord the ${ourShip.name}`);
   ourShip.loadCrew(trainingClass);
   ourShip.chooseCaptain();
   console.log(`${ourShip.captain.name} is now the captain of the ${ourShip.name}`);
-  console.log(rocket);
+  ourShip.mountPropulsion(rocket);
 };
 
 class Spaceship {
@@ -16,6 +19,7 @@ class Spaceship {
     this.name = name;
     this.crew =[];
     this.captain = null;
+    this.propulsion = null;
   }
 
   loadCrew(crewList) {
@@ -30,6 +34,11 @@ class Spaceship {
     this.captain = this.crew[captainSelection];
   }
 
+  mountPropulsion(object) {
+    this.propulsion = object;
+    console.log(`Propulsion successfully mounted`);
+  }
+
 }
 
 function trainCrew(listOfPeople) {
@@ -42,9 +51,9 @@ function trainCrew(listOfPeople) {
   return trainedCrew;
 }
 
-let ourShip = new Spaceship('Milano');
-let crewNames = ['Tori', 'Ken', 'StarLord', 'Gamorra', 'Drax', 'Rocket', 'Groot', 'Mantis'];
-let trainingClass = trainCrew(crewNames);
-
+// rocket.addFuel(10);
+// for (i = 0; i < 12; i++) {
+//   rocket.fire();
+// }
 
 launchpad();
