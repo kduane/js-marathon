@@ -1,9 +1,10 @@
 // YOUR CODE GOES HERE
-require('./CrewMember');
+let CrewMember = require('./CrewMember');
 
 let launchpad = (ship) => {
   console.log('Initiating preflight procedures');
   console.log(`Welcome abord the ${ourShip.name}`);
+  console.log(ourShip.crew);
 };
 
 
@@ -13,17 +14,18 @@ class Spaceship {
     this.crew =[];
   }
 
-  addCrewMember(crewMember) {
-    this.crew.push(crewMember);
+  trainCrew(listOfPeople) {
+    listOfPeople.forEach(person => {
+      var member = new CrewMember(person);
+      member.trained = true;
+      this.crew.push(member);
+    });
   }
+
 }
 
 let ourShip = new Spaceship('Milano');
-
 let crewNames = ['Tori', 'Ken', 'Katja', 'Dario', 'Claire', 'Jess'];
-
-crewNames.forEach(person => {
-  ourShip.addCrewMember(person);
-});
+ourShip.trainCrew(crewNames);
 
 launchpad();
