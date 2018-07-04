@@ -1,5 +1,6 @@
 // YOUR CODE GOES HERE
 let CrewMember = require('./CrewMember');
+let rocket = require('./Rocket');
 
 let launchpad = (ship) => {
   console.log('Initiating preflight procedures');
@@ -7,6 +8,7 @@ let launchpad = (ship) => {
   ourShip.loadCrew(trainingClass);
   ourShip.chooseCaptain();
   console.log(`${ourShip.captain.name} is now the captain of the ${ourShip.name}`);
+  console.log(rocket);
 };
 
 
