@@ -12,6 +12,8 @@ let launchpad = (ship) => {
   ourShip.chooseCaptain();
   console.log(`${ourShip.captain.name} is now the captain of the ${ourShip.name}`);
   ourShip.mountPropulsion(rocket);
+  rocket.addFuel(5);
+  ourShip.takeoff();
 };
 
 class Spaceship {
@@ -37,6 +39,14 @@ class Spaceship {
   mountPropulsion(object) {
     this.propulsion = object;
     console.log(`Propulsion successfully mounted`);
+  }
+
+  takeoff() {
+    if (this.propulsion.fire() === true) {
+      console.log(`:rumblerumblerubmble:  And we're off!`);
+    } else {
+      console.log(`${this.captain.name}, engines appear to be offline.`);
+    }
   }
 
 }
