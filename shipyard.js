@@ -13,7 +13,7 @@ let launchpad = (ship) => {
   console.log(`${ourShip.captain.name} is now the captain of the ${ourShip.name}`);
   ourShip.mountPropulsion(rocket);
   rocket.addFuel(5);
-  ourShip.takeoff();
+  ourShip.countdown(10);
 };
 
 class Spaceship {
@@ -47,6 +47,13 @@ class Spaceship {
     } else {
       console.log(`${this.captain.name}, engines appear to be offline.`);
     }
+  }
+
+  countdown(number) {
+    for (var i = number; i > 0; i--) {
+      console.log(`${i}`);
+    }
+    this.takeoff();
   }
 
 }
